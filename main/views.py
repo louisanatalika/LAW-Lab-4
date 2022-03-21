@@ -2,8 +2,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.core.exceptions import ObjectDoesNotExist
-from .serializers import Book, BookImageSerializer, BookSerializer
-from .models import Book, BookImage
+from .serializers import Book, BookImageSerializer, BookSerializer, CitySerializer
+from .models import Book, BookImage, City
 
 def responseCreator(status = status.HTTP_200_OK, data = None, error = None):
     return Response({
@@ -24,6 +24,22 @@ def all_books(request):
     all_books = Book.objects.select_related('author__hometown')
     serializer = BookSerializer(all_books, many=True)
     return Response(serializer.data)
+
+@api_view(['POST'])
+def create_city(request):
+	if request.method == 'POST':
+		isValid = validateBody(request, ['name', 'province'])
+	if isValid != None:
+		return isValid
+	
+	name = request.data.get("name")
+	province = request.data.get("province")
+
+	city = City.objects.create(
+		name = name,
+		province = province
+	)
+	return responseCreator(data=CitySerializer(city).data, status=status.HTTP_201_CREATED)
 
 @api_view(['POST'])
 def create_book(request):
