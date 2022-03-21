@@ -25,6 +25,12 @@ def all_books(request):
     serializer = BookSerializer(all_books, many=True)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def books_by_title(request, title):
+    book = Book.objects.select_related('author__hometown').filter(title__contains=title)
+    serializer = BookSerializer(book, many=True)
+    return Response(serializer.data)
+
 @api_view(['POST'])
 def create_city(request):
 	if request.method == 'POST':
