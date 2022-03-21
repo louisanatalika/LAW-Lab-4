@@ -2,9 +2,10 @@ from rest_framework import serializers
 from .models import Book, BookImage
 
 class BookSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Book
-        fields = '__all__'
+	class Meta:
+		model = Book
+		fields = '__all__'
+		depth = 2
 
 class BookImageSerializer(serializers.ModelSerializer):
     class Meta:
