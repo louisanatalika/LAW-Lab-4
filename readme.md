@@ -6,24 +6,25 @@
 ## Endpoint
 1. **[READ]** GET    /books/ \
     Example: \
-    ![GET ALL Books](https://user-images.githubusercontent.com/60333894/158632339-c0220007-cc85-4f04-8694-298c8d7032c4.PNG)
+    ![GET ALL BOOKS](https://user-images.githubusercontent.com/60333894/160957735-f3667bab-a3c1-47be-98c9-6f6e6f212b6f.png)
 
-
-2. **[CREATE]** POST   /books/create/
+2. **[CREATE]** POST   /books/create/city
     * Content-type:
         * form-data
     * Request Body:
         | Key       | Type  |
         | :---:     | :-:   |
-        | title   | String   |
-        | author   | String   |
+        | name   | String   |
+        | province   | String   |
 
     Example: \
-    ![POST CREATE Book](https://user-images.githubusercontent.com/60333894/158632434-10b76bcf-b878-40e1-8344-d182a9c5df98.PNG)
+    ![CREATE CITY](https://user-images.githubusercontent.com/60333894/160957900-33e0605b-1c51-4e22-bd97-b83533a33246.png)
 
-3. **[READ]** GET    /books/{ID} \
+
+3. **[READ]** GET    /books/{title} \
     Example: \
-    ![GET A Book](https://user-images.githubusercontent.com/60333894/158632548-4802a66a-fcdf-4db4-9d57-5e350450569e.PNG)
+    ![GET A BOOK BY TITLE](https://user-images.githubusercontent.com/60333894/160957985-bb64a8ee-788c-4bbe-ab80-f28cf63a837f.png)
+
 
 4. **[UPDATE]** PUT    /books/{ID}
     * Content-type:
@@ -35,7 +36,7 @@
         | author   | String  (optional) |
 
     Example: \
-    ![PUT UPDATE A Book](https://user-images.githubusercontent.com/60333894/158632643-955a9f4d-f8c0-4e67-bb58-aa26bc613f43.PNG)
+    ![UPDATE A BOOK](https://user-images.githubusercontent.com/60333894/160958244-d36d926f-782f-46aa-8075-1048557098da.png)
 
 5. **[DELETE]** DELETE /books/{ID} \
     Example: \
@@ -48,5 +49,3 @@
     ![POST Book Image Approved](https://user-images.githubusercontent.com/60333894/158632791-3ca1b871-2cc0-4fc5-8b1a-d05c7070fa42.PNG)
 
 
-## Deployment
-1. Deployed at: [Infralabs]()
